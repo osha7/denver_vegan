@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/denver_vegan'
+require "bundler/setup"
+require "denver_vegan"
 
 DenverVegan::CLI.new.call
 
