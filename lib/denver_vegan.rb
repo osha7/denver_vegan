@@ -1,6 +1,4 @@
-require "denver_vegan/version"
+require_relative "./denver_vegan/version"
+require_relative './denver_vegan/restaurant'
+require_relative './denver_vegan/cli'
 
-module DenverVegan
-  class Error < StandardError; end
-  # Your code goes here...
-end
