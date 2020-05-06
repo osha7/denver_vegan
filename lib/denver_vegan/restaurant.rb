@@ -1,30 +1,24 @@
 class DenverVegan::Restaurant
-    attr_accessor :name, :price, :review_snippet, :url
+    attr_accessor :name, :price_point, :review_snippet, :full_review
+
+    @@all = []
+
+   def initialize(name=nil, price_point=nil, review_snippet=nil)
+    @name = name
+    @price_point = price_point
+    @review_snippet = review_snippet
+    @full_review = full_review
+    @@all << self
+    
+   end
+
+   def self.all
+    @@all
+   end
+
+end
+
+#     #DenverVegan::Restaurant.scrape_cntraveler
  
-    def self.vegan_restaurant
-        self.scrape_restaurants
-    end
 
-    def self.scrape_restaurants
-        restaurants = []
-
-        restaurants << self.scrape_cntraveler
-
-        restaurants
-    end
-
-    def self.scrape_cntraveler
-        #  url = "https://www.cntraveler.com/gallery/best-vegan-and-vegetarian-restaurants-in-denver"
-        doc = Nokogiri::HTML(open("https://www.cntraveler.com/gallery/best-vegan-and-vegetarian-restaurants-in-denver"))
-        doc.css("div.image-content-container").each do |restaurant|
-            # name = restaurant.css("h2.hed").text
-            # price =  restaurant.css("p.price").text
-            # review_snippet =  restaurant.css("div.dek p").text
-
-        binding.pry
-        end
-    end
-
- 
- end
  
