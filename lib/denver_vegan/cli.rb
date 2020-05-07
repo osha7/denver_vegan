@@ -2,19 +2,20 @@ class DenverVegan::CLI
 
     def call
         welcome
-        DenverVegan::Scraper.scrape_cntraveler
-        #binding.pry
+        DenverVegan::Scraper.initial_scrape
+        full_review
         list_vegan_restaurants
         menu
         goodbye
+
     end
 
     def welcome
         puts ""
         puts "Welcome!"
-        puts "We have compiled some of the best restaurants in Denver, where you can eat plants 'til your hearts content!"
+        puts "We've made a list of some of the best plant chompin' restaurants in Denver!"
         puts ""
-        puts "Are You A Hungry Vegan In Denver?"    
+        puts "Are You A Hungry Vegan In Denver? (y/n)"    
         input = gets.strip.downcase
             if input == "y"
             list_vegan_restaurants
@@ -35,15 +36,25 @@ class DenverVegan::CLI
         @restaurants = DenverVegan::Restaurant.all
         @restaurants.each.with_index(1) do |rest, index|  
             puts "#{index}. #{rest.name}"
+            # puts "#{index}. #{rest.name} - #{rest.address}"
             #puts "#{index}. #{rest.name} - #{rest.price_point} - #{rest.review_snippet}"
         end
     end
- 
+
+    def full_review
+
+        
+        @restaurants = DenverVegan::Restaurant.all
+        @restaurants.each do |rest|
+            DenverVegan::Scraper.second_scrape(rest)
+        end
+    end
+
     
      def menu
          
          input = nil
-         while input != "exit"
+         while input != "exit" && input != "EXIT"
             puts ""
             puts "    **********************************************************"
             puts "    *                  *                  *                  *"
@@ -56,24 +67,24 @@ class DenverVegan::CLI
              input = gets.strip.downcase
 
                 if input.to_i > 0
+                    system("clear")
                     the_restaurant = @restaurants[input.to_i-1]
                     puts ""
                     puts "#{the_restaurant.name} - #{the_restaurant.price_point} - #{the_restaurant.review_snippet}"
+                    sleep 5
                     
                 elsif input == "list"
                     list_vegan_restaurants
-                elsif input == "exit"    
-                   puts "Thank you for eating your veggies!"
-                else 
+                elsif input == "exit"  
+                    puts ""  
+                    puts "Thank you for eating your veggies!"
+                else
                     puts "Just like meat, that's not an option."
                 end
-
          end
- 
      end
  
      def goodbye
-        puts ""
         puts "Now, go get some grub!"
      end
 

@@ -10,5 +10,15 @@ require "denver_vegan"
 # require "pry"
 # Pry.start
 
+#if you come into console to use binding.pry - don't forget to remove lines 20 & 21
+        # html_to_elements = open("https://www.cntraveler.com/restaurants/denver/hoja")
+        # parsed_html_elements = Nokogiri::HTML(html_to_elements)
+
+        # binding.pry 
+        # 0
+
 require "irb"
 IRB.start(__FILE__)
+
+
+
