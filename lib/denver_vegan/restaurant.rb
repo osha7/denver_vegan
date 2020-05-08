@@ -20,20 +20,19 @@ class DenverVegan::Restaurant
         @@all
     end
 
-    # def self.yes_more_restaurant_info()
-    #     # @restaurants = DenverVegan::Scraper.second_scrape
-    #     # @restaurants.each do |rest|
-    #     puts ""
-    #     puts "#{restaurant.name_header}"
-    #     puts "#{restaurant.address}"
-    #     puts "#{restaurant.phone}"
-    #     puts "#{restaurant.website}"
-    #     puts "#{restaurant.cuisine}"
-    #     puts ""
-    #     puts "#{restaurant.extended_review}"
-    #     #end
+    def self.yes_more_restaurant_info(the_restaurant)
+        rest = DenverVegan::Scraper.second_scrape(the_restaurant)
+           
+        puts ""
+        puts "#{rest.name_header}".green.bold
+        puts "#{rest.address}".green
+        puts "#{rest.phone}".green
+        puts "#{rest.website}".green
+        puts "Cuisine: ".green.bold + "#{the_restaurant.cuisine}".green
+        puts ""
+        puts "#{rest.extended_review}".green
 
-    # end
+    end
 
 end
 

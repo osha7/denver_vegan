@@ -21,10 +21,10 @@ class DenverVegan::Scraper
     end
 
     def self.second_scrape(restaurant)
+       # binding.pry
         base_url = "http://cntraveler.com"
-        page = open(base_url + restaurant.url)
+        page = open("#{base_url}" + "#{restaurant.url}")
         parsed_page_html_elements = Nokogiri::HTML(page)
-        #page.css().each do |restaurant|
         
             restaurant.name_header = parsed_page_html_elements.css("h1.venue__name").text
             restaurant.address = parsed_page_html_elements.css("address p").text
@@ -32,7 +32,7 @@ class DenverVegan::Scraper
             restaurant.website = parsed_page_html_elements.css("div p.venue__url").text
             restaurant.cuisine = parsed_page_html_elements.css("p.feature-item").text
             restaurant.extended_review = parsed_page_html_elements.css("div.description-wrapper p")[3].text
-       # end
+            restaurant
         
     end
 

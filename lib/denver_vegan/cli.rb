@@ -82,16 +82,8 @@ class DenverVegan::CLI
                     puts "How's this sounding?  Would you like more info: (y/n)"
                     input = gets.strip.downcase
                         if input == "y"
-                            # DenverVegan::Restaurant.yes_more_restaurant_info
-                            # the_restaurant = @restaurants
-                            puts ""
-                            puts "#{the_restaurant.name_header}".green
-                            puts "#{the_restaurant.address}".green
-                            puts "#{the_restaurant.phone}".green
-                            puts "#{the_restaurant.website}".green
-                            puts "Cuisine: ".green.bold + "#{the_restaurant.cuisine}".green
-                            puts ""
-                            puts "#{the_restaurant.extended_review}".green
+                            DenverVegan::Restaurant.yes_more_restaurant_info(the_restaurant)
+
                         elsif input == "n"
                             puts ""
                             puts "Let us grab that list for you again.".green
