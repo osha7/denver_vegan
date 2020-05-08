@@ -68,7 +68,7 @@ class DenverVegan::CLI
              puts "Typing 'exit' will get you outta here fast!"
              input = gets.strip.downcase
 
-                if input.to_i > 0
+                if input.to_i > 0 && input.to_i <= DenverVegan::Restaurant.all.length
                     system("clear")
                     the_restaurant = @restaurants[input.to_i-1]
                     puts ""
