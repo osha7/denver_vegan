@@ -3,7 +3,7 @@ class DenverVegan::CLI
     def call
         welcome
         DenverVegan::Scraper.initial_scrape
-        full_review
+        extended_option
         list_vegan_restaurants
         menu
         goodbye
@@ -18,6 +18,10 @@ class DenverVegan::CLI
         puts "Are You A Hungry Vegan In Denver? (y/n)"    
         input = gets.strip.downcase
             if input == "y"
+                puts ""
+                puts "Retrieving our list."
+                puts "This might take a second."
+                puts ""
             list_vegan_restaurants
             elsif input == "n"
                 puts ""
@@ -41,9 +45,7 @@ class DenverVegan::CLI
         end
     end
 
-    def full_review
-
-        
+    def extended_option
         @restaurants = DenverVegan::Restaurant.all
         @restaurants.each do |rest|
             DenverVegan::Scraper.second_scrape(rest)
@@ -71,7 +73,30 @@ class DenverVegan::CLI
                     the_restaurant = @restaurants[input.to_i-1]
                     puts ""
                     puts "#{the_restaurant.name} - #{the_restaurant.price_point} - #{the_restaurant.review_snippet}"
+                    puts ""
+                    puts "How's this sounding?  Would you like more info: (y/n)"
+                    input = gets.strip.downcase
+                        if input == "y"
+                            # DenverVegan::Restaurant.yes_more_restaurant_info
+                            # the_restaurant = @restaurants
+                            puts ""
+                            puts "#{the_restaurant.name_header}"
+                            puts "#{the_restaurant.address}"
+                            puts "#{the_restaurant.phone}"
+                            puts "#{the_restaurant.website}"
+                            puts "#{the_restaurant.cuisine}"
+                            puts ""
+                            puts "#{the_restaurant.extended_review}"
+                        elsif input == "n"
+                            puts ""
+                            puts "Let us grab that list for you again."
+                            puts ""
+                            list_vegan_restaurants
+                        else 
+                            puts "Just like meat, that's not an option."
+                        end
                     sleep 5
+
                     
                 elsif input == "list"
                     list_vegan_restaurants
@@ -86,6 +111,8 @@ class DenverVegan::CLI
  
      def goodbye
         puts "Now, go get some grub!"
+        puts ""
+        puts ""
      end
 
 end

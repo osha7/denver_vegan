@@ -2,7 +2,7 @@
 
 class DenverVegan::Restaurant
 
-    attr_accessor :name, :price_point, :review_snippet, :full_review, :url, :address
+    attr_accessor :name, :price_point, :review_snippet, :url, :name_header, :address, :phone, :website, :cuisine, :extended_review
 
     @@all = []
 
@@ -20,20 +20,24 @@ class DenverVegan::Restaurant
         @@all
     end
 
-    def list_vegan_restaurants
+    # def self.yes_more_restaurant_info()
+    #     # @restaurants = DenverVegan::Scraper.second_scrape
+    #     # @restaurants.each do |rest|
+    #     puts ""
+    #     puts "#{restaurant.name_header}"
+    #     puts "#{restaurant.address}"
+    #     puts "#{restaurant.phone}"
+    #     puts "#{restaurant.website}"
+    #     puts "#{restaurant.cuisine}"
+    #     puts ""
+    #     puts "#{restaurant.extended_review}"
+    #     #end
 
-        @restaurants = self.all
-        @restaurants.each.with_index(1) do |rest, index|  
-        puts "#{index}. #{rest.name}"
-            # puts "#{index}. #{rest.name} - #{rest.address}"
-            #puts "#{index}. #{rest.name} - #{rest.price_point} - #{rest.review_snippet}"
-        end
-    end
-
+    # end
 
 end
 
-#     #DenverVegan::Restaurant.scrape_cntraveler
+
  
 
  

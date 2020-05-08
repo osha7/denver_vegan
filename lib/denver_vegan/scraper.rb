@@ -24,15 +24,26 @@ class DenverVegan::Scraper
         base_url = "http://cntraveler.com"
         page = open(base_url + restaurant.url)
         parsed_page_html_elements = Nokogiri::HTML(page)
+        #page.css().each do |restaurant|
         
-        restaurant.address = parsed_page_html_elements.css("address p").text
-        #new_restaurant.full_review = parsed_page_html_elements.css("")
+            restaurant.name_header = parsed_page_html_elements.css("h1.venue__name").text
+            restaurant.address = parsed_page_html_elements.css("address p").text
+            restaurant.phone = parsed_page_html_elements.css("div p.venue__phone").text
+            restaurant.website = parsed_page_html_elements.css("div p.venue__url").text
+            restaurant.cuisine = parsed_page_html_elements.css("p.feature-item").text
+            restaurant.extended_review = parsed_page_html_elements.css("div.description-wrapper p")[3].text
+       # end
         
     end
-        #parsed_html_elements.css("address p").text
-        #parsed_html_elements.css("section.our-review").text
-#parsed_html_elements.css("div.description-wrapper p")[3].text
-        
+
+        #extended review: #parsed_html_elements.css("div.description-wrapper p")[3].text
+        #address: parsed_html_elements.css("address p").text
+    #full review: parsed_html_elements.css("section.our-review").text
+        #phone:   parsed_html_elements.css("div p.venue__phone").text
+        #website:   parsed_html_elements.css("div p.venue__url").text
+        #name(second scrape):   pry(main)> parsed_html_elements.css("h1.venue__name").text
+        #cuisine:   pry(main)> parsed_html_elements.css("p.feature-item").text
+
 
                  
                  
