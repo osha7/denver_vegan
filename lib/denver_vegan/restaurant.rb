@@ -22,7 +22,7 @@ class DenverVegan::Restaurant
 
     def self.yes_more_restaurant_info(the_restaurant)
         rest = DenverVegan::Scraper.second_scrape(the_restaurant)
-           
+    
         puts ""
         puts "#{rest.name_header}".green.bold
         puts "#{rest.address}".green
