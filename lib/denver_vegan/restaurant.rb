@@ -16,13 +16,23 @@ class DenverVegan::Restaurant
         @@all << self 
     end
 
+
     def self.all
         @@all
     end
 
-    def self.yes_more_restaurant_info(the_restaurant)
+
+    def self.list   #moved this out of cli class
+        @restaurants = self.all
+        @restaurants.each.with_index(1) do |rest, index|  
+            puts "#{index}.".green.bold + " #{rest.name}".green
+        end
+    end
+
+
+    def self.yes_more_restaurant_info(the_restaurant)  #moved this out of cli class
         rest = DenverVegan::Scraper.second_scrape(the_restaurant)
-    
+        #binding.pry
         puts ""
         puts "#{rest.name_header}".green.bold
         puts "#{rest.address}".green

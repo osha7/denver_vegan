@@ -33,32 +33,14 @@ class DenverVegan::Scraper
             restaurant.cuisine = parsed_page_html_elements.css("p.feature-item").text
             restaurant.extended_review = parsed_page_html_elements.css("div.description-wrapper p")[3].text
             restaurant
-        
     end
-
-        #extended review: #parsed_html_elements.css("div.description-wrapper p")[3].text
-        #address: parsed_html_elements.css("address p").text
-    #full review: parsed_html_elements.css("section.our-review").text
-        #phone:   parsed_html_elements.css("div p.venue__phone").text
-        #website:   parsed_html_elements.css("div p.venue__url").text
-        #name(second scrape):   pry(main)> parsed_html_elements.css("h1.venue__name").text
-        #cuisine:   pry(main)> parsed_html_elements.css("p.feature-item").text
-
-
-                 
-                 
-        
-         
-            
-
-
     
+end
     
 
-
-    
-    #DenverVegan::Scraper.second_scrape
+    # use this in the binding.pry: (running ./bin/console)
+    # DenverVegan::Scraper.second_scrape
 
  
 
-end
+
