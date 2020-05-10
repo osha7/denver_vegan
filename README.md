@@ -1,6 +1,6 @@
 # DenverVegan
 
-The Denver Vegan app is specifically to help you, a hungry vegan traveller, find some of the best known vegan 'gems' here in the Mile High City.  We'll give you a taste of each restaurant with a review snippet.  If you see something you like, you can choose to see more info for address, phone, cuisine type, and website.
+The Denver Vegan app is specifically to help you, a hungry vegan traveler, find some of the best known vegan 'gems' here in the Mile High City.  We'll give you a taste of each restaurant with a review snippet.  If you see something you like, you can choose to see more info for address, phone, cuisine type, and website.
 
 Follow along below to clone and run this repo.
 This CLI application will prompt you to make selections to find a restaurant and then read more about that restaurant.  Don't worry if you type in anything in error, the program will let you know if you do, and prompt you for another selection.
