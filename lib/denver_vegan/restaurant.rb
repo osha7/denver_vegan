@@ -36,8 +36,8 @@ class DenverVegan::Restaurant
         puts ""
         puts "#{rest.name_header}".green.bold
         puts "#{rest.address}".green
-        puts "#{rest.phone}".green
-        puts "#{rest.website}".green
+        puts "#{rest.phone}".green   
+        puts "#{rest.website}".green 
         puts "Cuisine: ".green.bold + "#{the_restaurant.cuisine}".green
         puts ""
         puts "#{rest.extended_review}".green

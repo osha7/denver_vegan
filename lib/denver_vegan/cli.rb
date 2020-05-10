@@ -34,6 +34,7 @@ class DenverVegan::CLI
             else
                 puts ""
                 puts "Just like meat, that's not an option.".yellow
+                sleep 5
                 welcome
         end
     end
