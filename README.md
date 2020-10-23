@@ -1,5 +1,9 @@
-# DenverVegan
+In the terminal/app file:
+# To run this application:
+./bin/denver-vegan
 
+
+# DenverVegan
 The Denver Vegan app is specifically to help you, a hungry vegan traveler, find some of the best known vegan 'gems' here in the Mile High City.  We'll give you a taste of each restaurant with a review snippet.  If you see something you like, you can choose to see more info for address, phone, cuisine type, and website.
 
 Follow along below to clone and run this repo.

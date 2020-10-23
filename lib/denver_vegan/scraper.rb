@@ -3,17 +3,18 @@
 class DenverVegan::Scraper
 
     def self.initial_scrape
+        # binding.pry
         url = "https://www.cntraveler.com/gallery/best-vegan-and-vegetarian-restaurants-in-denver"
         page = Nokogiri::HTML(open(url))
 
-        #binding.pry
-        page.css("div.image-content-container").each do |restaurant| 
+        # binding.pry
+        page.css("div.gallery-slide-caption").each do |restaurant| 
             new_restaurant = DenverVegan::Restaurant.new
-       #binding.pry
-            new_restaurant.name = restaurant.css("h2.hed").text
-            new_restaurant.price_point = restaurant.css("p.price").text
-            new_restaurant.review_snippet = restaurant.css("div.dek p").text
-            new_restaurant.url = restaurant.css("a").attr("href").value #/denver/restaurant-name, meaning base url was actually cntraveler.com/restaurants
+    #    binding.pry
+            new_restaurant.name = restaurant.css("span.gallery-slide-caption__hed-text").text
+            new_restaurant.price_point = restaurant.css("div.gallery-slide-caption__detail").text
+            new_restaurant.review_snippet = restaurant.css("div.gallery-slide-caption__dek p").text
+            new_restaurant.url = restaurant.css("a").attr("href").value #/restaurants/denver/restaurant-name, meaning base url was actually cntraveler.com
             
     #image_content_container = parsed_page_html_elements.css('.image-content-container')
                  #when in pry: type in 'image_content_container[0] to see the first element 

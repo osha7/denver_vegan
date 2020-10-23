@@ -44,6 +44,15 @@ class DenverVegan::Restaurant
 
     end
 
+    #create a method #alpha 
+    #this method is going to return all our restaurant in alpha order by name property
+
+
+    def self.alpha
+        self.all.sort_by {|a| a.name}
+    end
+
+
 end
 
 
